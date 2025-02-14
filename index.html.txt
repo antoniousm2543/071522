@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Gallery</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        #login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #gallery {
+            display: none;
+            max-width: 100vw;
+        }
+        img {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="login">
+        <h2>Enter Passcode to Access the Gallery</h2>
+        <input type="password" id="passcode" placeholder="Enter Passcode">
+        <button onclick="checkPasscode()">Submit</button>
+    </div>
+    
+    <div id="gallery">
+        <h2>Gallery</h2>
+        <img src="IMG_5217.JPG" alt="Image 1">
+        <img src="IMG_5218.JPG" alt="Image 2">
+        <img src="IMG_6105.jpeg" alt="Image 3">
+        <img src="IMG_8556.JPG" alt="Image 4">
+        <img src="qr_code.png" alt="QR Code"> <!-- Last Image -->
+    </div>
+
+    <script>
+        function checkPasscode() {
+            let enteredPasscode = document.getElementById("passcode").value;
+            if (enteredPasscode === "071522") {
+                document.getElementById("login").style.display = "none";
+                document.getElementById("gallery").style.display = "block";
+            } else {
+                alert("Incorrect passcode. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
